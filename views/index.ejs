@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="/js/script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <%- include('partials/header.html') %>
+    <div style="height: 600px" class="container">
+        <br /> <h2>Visualize aqui os remédios que você cadastrou</h2> <br />
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Farmacéutico responsável</th>
+              </tr>
+              <% for(let medicamento of medicamentos) { %>
+                <tr>
+                    <th scope="col"> <%= medicamento.nome %></th>
+                    <th scope="col"> <%= medicamento.descricao %></th>
+                    <th scope="col"> <%= medicamento.Usuario.nome %></th>
+                    <th>
+                        <a class="btn btn-warning"href="/medicamentos/<%=medicamento.id%>">Editar</a>
+                    </th>
+                    <th>
+                        <a href='' class="btn btn-danger" onclick="apagaMedicamento(<%=medicamento.id%>)">Apagar</a>
+                    </th>
+                </tr>
+            <% } %>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <br/><a class="btn btn-success" href="/medicamentos/novo">Inserir novo remédio</a>
+    </div>
+    <%- include('partials/footer.html') %>
+</body>
+</html>

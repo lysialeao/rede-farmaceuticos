@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="/js/script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <%- include('partials/header.html') %>
+    <div class="container" style="height: 600px">
+        <br /> <h2>Todos os medicamentos disponíveis na rede</h2> <br />
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Farmacéutico responsável</th>
+              </tr>
+            </thead>
+            <tbody>
+                    <% for(let medicamento of medicamentos) { %>
+                        <tr>
+                            <th scope="col"><%= medicamento.id %></th>
+                            <th scope="col"> <%= medicamento.nome %></th>
+                            <th scope="col"> <%= medicamento.descricao %></th>
+                            <th scope="col"> <%= medicamento.Usuario.nome %></th>
+                        </tr>
+                    <% } %>
+            </tbody>
+        </table>
+    </div>
+    <%- include('partials/footer.html') %>
+</body>
+</html>
