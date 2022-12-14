@@ -1,5 +1,4 @@
 const {Router} = require('express');
-const { medicamentos } = require('.');
 const {Medicamento, Usuario} = require('../models');
 
 const roteador = Router();

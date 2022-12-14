@@ -1,8 +1,7 @@
 const {Router} = require('express');
-
 const {Medicamento, Usuario} = require('../models');
-roteador = Router();
 
+roteador = Router();
 
 roteador.get('/login', (req, res)=>{
     res.status(200).render('login');
@@ -12,7 +11,6 @@ roteador.get('/logoff', (req, res)=>{
     req.session.destroy();
     res.redirect('/usuario/login');
 });
-
 
 roteador.post('/login', async (req, res)=>{
     const {login, senha} = req.body;
@@ -56,14 +54,6 @@ roteador.post('/', async (req, res)=> {
     const { nome, login, senha } = req.body;
     await Usuario.create({nome, login, senha});
     res.status(201).redirect('usuario/login');
-});
-
-
-roteador.get('/:id', async (req, res)=>{
-});
-
-roteador.post('/', async (req, res)=>{
-
 });
 
 roteador.patch('/:id', async (req, res)=>{
