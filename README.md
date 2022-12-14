@@ -8,6 +8,7 @@ For this to happen, technologies such as: Javascript, Node.js, Express and Seque
 
 To make the project run...
 Clone this repo on your machine and install the dependencies with `npm install`
-Afterwards, run the migrations to create the database with `npx sequelize db:migrate`
+Check your database access credentials in the project config
+Afterwards, run the migrations to create the database with `npx sequelize db:create` and `npx sequelize db:migrate`
 
 After that, the application will be running on localhost:80, ready to be used!
